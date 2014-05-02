@@ -19,7 +19,7 @@
         "npm": ">=1.4.2"
     },
     "dependencies": {
-	"socket.io":">=0.9.16"
+	"socket.io":">=0.9.16",
 	"mysql":">=2.2.0",
 	"sequelize":">=1.7.3",
 	"restify":">=2.7.0"
