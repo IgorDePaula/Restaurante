@@ -1,0 +1,35 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Ediar Produto</h3>
+    </div>
+    <div class="panel-body">
+        <div class="alert alert-success" ng-show="result.result">
+            <i class="glyphicon glyphicon-saved"></i> Produto registrado com sucesso.
+        </div>
+        <div class="alert alert-danger" ng-show="{{result.erro}}">
+            <i class="glyphicon glyphicon-warning-sign"></i> {{result.erro}}
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Nome do produto</label>
+            <input type="text" name="nome" ng-model="produto.nome" required  class="form-control" id="exampleInputEmail1" placeholder="Nome do produto">
+
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Descrição do produto</label><br/>
+            <textarea ng-model="produto.descricao" name="descricao"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Preço do produto</label>
+            <input type="text" ng-model="produto.valorbase" name="valor" required class="form-control" id="exampleInputEmail1" placeholder="Preço do produto"  />
+
+        </div>
+        <div class="checkbox">
+            <label>
+                <input ng-model="produto.ativo" ng-checked="produto.ativo"  type="checkbox"> Ativo
+            </label>
+        </div>  
+    </div>
+    <div class="panel-footer">
+        <button type="submit" ng-click="add()" ng-disabled="!produto.nome || !produto.valorbase" class="btn btn-success"><i class="glyphicon glyphicon-save"></i> Salvar</button>
+    </div>
+</div>  

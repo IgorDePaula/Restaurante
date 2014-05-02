@@ -1,0 +1,29 @@
+<div class="page-header">
+    <h1>Lista de Produtos</h1><br/>       
+</div>
+<h4><input type="text" ng-model="busca" placeholder="Busca: Digite um termo" /></h4>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Descriçao</th>
+            <th>Ativo</th>
+            <th>Valor</th>
+            <th>opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="produto in produtos | filter:busca">
+            <td>{{produto.nome}}</td>
+            <td>{{produto.descricao}}</td>
+            <td>{{produto.ativo | toActive}}</td>
+            <td>{{produto.valorbase | currency}}</td>
+            <td><a class="btn btn-default" ui-sref="produtos.edit({id:produto.id})" title="Editar produto"><i class="glyphicon glyphicon-pencil"></i></a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3"><a class="btn btn-default" ui-sref="produtos.novo" title="Adicionar produto"><i class="glyphicon glyphicon-plus"></i></a></td>
+        </tr>
+    </tfoot>
+</table>

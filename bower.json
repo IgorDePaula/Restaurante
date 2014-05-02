@@ -1,0 +1,21 @@
+{
+   "name": "restaurante",
+    "version": "0.0.0",
+    "dependencies": {},
+    "devDependencies": {
+        "angular": "1.2.16",
+        "angular-mocks": "1.2.16",
+        "angular-ui-router": "0.2.10",
+        "angular-animate": "1.2.16",
+        "angular-cookies": "1.2.16",
+        "angular-resource": "1.2.16",
+        "angular-sanitize": "1.2.16",
+        "angular-touch": "1.2.16",
+        "jquery": ">= 2.1.0",
+        "bootstrap": ">= 3.1.1",
+        "underscore": "latest",
+        "underscore.string": "latest",
+        "momentjs": "latest",
+        "modernizr": "latest"
+    }
+}
