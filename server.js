@@ -1,20 +1,19 @@
-var restify = require('restify'); //para chamadas rest
-var Sequelize = require('sequelize'); //mara orm
+var restify = require('restify');
+var Sequelize = require('sequelize');
 var sequelize = new Sequelize('restaurante', 'restaurante', 'restaurante', {
     host: 'localhost',
     port: 3306,
-    dislect: 'mysql'//permite 5 banco de dados
+    dialect: 'mysql'
 });
 var server = restify.createServer({
-    name: 'myapp',
+    name: 'localhost',
     version: '1.0.0'
 });
 server.use(restify.acceptParser(server.acceptable));
 server.use(restify.queryParser());
 server.use(restify.bodyParser());
-server.use(restify.CORS()); //mas ja vi como me precaver quanto a isso
-sequelize.sync(false); //ele sincroniza o model, ou seja, cria a tabela
-//defino a tabela
+server.use(restify.CORS()); 
+sequelize.sync(false); 
 var Produto = sequelize.define('Produto', {
     idProduto: Sequelize.INTEGER,
     nome: Sequelize.STRING,
@@ -24,14 +23,14 @@ var Produto = sequelize.define('Produto', {
     precoativo: Sequelize.INTEGER
 }, {
     tableName: 'Produto',
-    timestamps: false //timestamps seria akele create_at do rails, igualzinho
+    timestamps: false 
 });
-server.get('/produtos', function(req, res, next) {//ao receber get do produtos, ele verifica se eh get all ou get one
+server.get('/produtos', function(req, res, next) {
 
     if (!req.params.produto)
     {
         sequelize.query("SELECT * FROM Produto").success(function(myTableRows) {
-            res.send(myTableRows); //envio de volta
+            res.send(myTableRows); 
         });
     }
     if (req.params.produto)
@@ -50,7 +49,16 @@ server.get('/produtos', function(req, res, next) {//ao receber get do produtos, 
     }
     return next();
 });
-server.post('/produtos', function(req, res, next) {//faz o post da chamada e salva no banco
+server.get('/venda/produtos', function(req, res, next) {
+        sequelize.query("SELECT * FROM Produto where ativo = 1").success(function(myTableRows) {
+            res.send(myTableRows); 
+        });
+   
+    return next();
+});
+
+
+server.post('/produtos', function(req, res, next) {
     if (!req.body.id)
     {
         var produto = Produto.create(req.body).success(function(prod, err) {
@@ -70,7 +78,6 @@ server.post('/produtos', function(req, res, next) {//faz o post da chamada e sal
                     } else if (!produto) {
                         res.send({erro: "Nenhum produto encontrado com esta identificacao!"});
                     } else {
-
                         produto.updateAttributes({
                             nome: req.body.nome,
                             descricao: req.body.descricao,

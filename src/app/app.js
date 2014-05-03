@@ -3,42 +3,49 @@
  * @module Restaurante
  */
 angular.module('Restaurante', [
-        'Restaurante.config',
-        'service.produtos'
-    ])
+    'Restaurante.config',
+    'service.produtos',
+    'service.vendas'
+])
+        .run(function($rootScope, $state, $stateParams) {
+            'use strict';
 
-    .run(function ($rootScope, $state, $stateParams) {
-        'use strict';
+            $rootScope.$state = $state;
+            $rootScope.$stateParams = $stateParams;
+        })
 
-        $rootScope.$state = $state;
-        $rootScope.$stateParams = $stateParams;
-    })
+        .controller('NavigationCtrl', function($scope, NAV_ITEMS) {
+            'use strict';
 
-    .controller('NavigationCtrl', function ($scope, NAV_ITEMS) {
-        'use strict';
+            $scope.navItems = NAV_ITEMS;
+        })
 
-        $scope.navItems = NAV_ITEMS;
-    })
+        .controller('HomeCtrl', function($scope) {
+            'use strict';
 
-    .controller('HomeCtrl', function ($scope) {
-        'use strict';
+            $scope.heading = 'Restaurante';
+        })
+        .controller('VendasCtrl', function($scope, vendas) {
+            'use strict';
+            $scope.isLoading = true;
+            $scope.produtos = vendas.getAtivo(function() {
+                $scope.isLoading = false;
+            });
+            
+            $scope.calcula = function()
+            {
+                var valor = 0.0;
+                angular.forEach($scope.produtos, function(produto) {
+                    if (produto.venda)
+                    {
+                        valor += produto.valorbase;
+                    }
+                });
+                return valor;
+            }
+        })
+        .controller('RelatoriosCtrl', function($scope) {
+            'use strict';
 
-        $scope.heading = 'Restaurante';
-    })
-    .controller('VendasCtrl', function ($scope) {
-        'use strict';
-
-        $scope.heading = 'Restaurante';
-    })/*
-    .controller('ProdutosCtrl', ['$scope','produtos',function ($scope,produtos) {
-        'use strict';
-
-        $scope.heading = 'Restaurante';
-        $scope.produtos = produtos.query();
-        console.log(produtos.query());
-    }])*/
-    .controller('RelatoriosCtrl', function ($scope) {
-        'use strict';
-
-        $scope.heading = 'Restaurante';
-    });
+            $scope.heading = 'Restaurante';
+        });
