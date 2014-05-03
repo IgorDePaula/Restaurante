@@ -16,7 +16,10 @@
         <tr ng-repeat="produto in produtos | filter:busca">
             <td>{{produto.nome}}</td>
             <td>{{produto.descricao}}</td>
-            <td>{{produto.ativo | toActive}}</td>
+            <td>
+                <span ng-if="produto.ativo == 1" class="label label-success">Sim</span>
+                <span ng-if="produto.ativo == 0" class="label label-danger">Nao</span>
+            </td>
             <td>{{produto.valorbase | currency}}</td>
             <td><a class="btn btn-default" ui-sref="produtos.edit({id:produto.id})" title="Editar produto"><i class="glyphicon glyphicon-pencil"></i></a></td>
         </tr>
