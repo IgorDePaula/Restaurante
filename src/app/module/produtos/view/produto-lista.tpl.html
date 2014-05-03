@@ -2,6 +2,13 @@
     <h1>Lista de Produtos</h1><br/>       
 </div>
 <h4><input type="text" ng-model="busca" placeholder="Busca: Digite um termo" /></h4>
+
+<div ng-show="isLoading" class="progress progress-striped active">
+  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    <span class="sr-only">45% Complete</span>
+  </div>
+</div>
+
 <table class="table table-bordered table-striped">
     <thead>
         <tr>
@@ -9,7 +16,7 @@
             <th>Descriçao</th>
             <th>Ativo</th>
             <th>Valor</th>
-            <th>opções</th>
+            <th>Opções</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +25,7 @@
             <td>{{produto.descricao}}</td>
             <td>
                 <span ng-if="produto.ativo == 1" class="label label-success">Sim</span>
-                <span ng-if="produto.ativo == 0" class="label label-danger">Nao</span>
+                <span ng-if="produto.ativo == 0" class="label label-danger">Não</span>
             </td>
             <td>{{produto.valorbase | currency}}</td>
             <td><a class="btn btn-default" ui-sref="produtos.edit({id:produto.id})" title="Editar produto"><i class="glyphicon glyphicon-pencil"></i></a></td>

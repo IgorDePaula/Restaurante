@@ -12,6 +12,7 @@ angular.module('produtos.novo', [])
         .controller('ProdutosEditCtrl', function($scope, produtos, $stateParams) {//controller
             'use strict';
             $scope.produto = produtos.query({produto: $stateParams.id});//servico onde faz a busca do rest
+            console.log(produtos.query({produto: $stateParams.id}));
             $scope.add = function() {
                 $scope.result = produtos.save($scope.produto);
             };
