@@ -31,14 +31,17 @@ angular.module('Restaurante', [
             $scope.produtos = vendas.getAtivo(function() {
                 $scope.isLoading = false;
             });
-            
             $scope.calcula = function()
             {
+
+                $scope.pedido = [];
                 var valor = 0.0;
-                angular.forEach($scope.produtos, function(produto) {
-                    if (produto.venda)
+                var prods = $scope.produtos;
+                angular.forEach(prods, function(prod) {
+                    if (prod.add)
                     {
-                        valor += produto.valorbase;
+                        valor += prod.valorbase;
+                        $scope.pedido.push(prod);
                     }
                 });
                 return valor;
