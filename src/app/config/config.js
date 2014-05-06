@@ -2,15 +2,15 @@
  * Restaurante
  * @module Restaurante.config
  */
-angular.module('Restaurante.config', [        
-        'produtos',
+angular.module('Restaurante.config', [ 
+    'produtos',
         'template.app',
         'ui.router',
         'ngAnimate',
         'ngCookies',
         'ngResource',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
     ])
 
     .constant('NAV_ITEMS', [

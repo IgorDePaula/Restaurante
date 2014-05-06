@@ -8,8 +8,16 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-1">Total:</div>
-    <div class="col-md-11">{{calcula() | currency}}</div>
+    <div class="col-md-2">Total:</div>
+    <div class="col-md-10">{{calcula() | currency}}</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Valor Pago:</div>
+    <div class="col-md-10"><input type="text" name="pago" ng-model="valorpago" /></div>
+</div>
+<div class="row">
+    <div class="col-md-2">Troco:</div>
+    <div class="col-md-10">{{valorpago - calcula() | currency}}</div>
 </div>
 <br/>
 <div class="row">

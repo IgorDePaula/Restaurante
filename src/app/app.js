@@ -5,7 +5,7 @@
 angular.module('Restaurante', [
     'Restaurante.config',
     'service.produtos',
-    'service.vendas'
+    'service.vendas',
 ])
         .run(function($rootScope, $state, $stateParams) {
             'use strict';
@@ -22,7 +22,8 @@ angular.module('Restaurante', [
 
         .controller('HomeCtrl', function($scope) {
             'use strict';
-
+    
+   
             $scope.heading = 'Restaurante';
         })
         .controller('VendasCtrl', function($scope, vendas) {
@@ -31,6 +32,9 @@ angular.module('Restaurante', [
             $scope.produtos = vendas.getAtivo(function() {
                 $scope.isLoading = false;
             });
+            
+           
+            
             $scope.calcula = function()
             {
 
@@ -45,7 +49,7 @@ angular.module('Restaurante', [
                     }
                 });
                 return valor;
-            }
+            };
         })
         .controller('RelatoriosCtrl', function($scope) {
             'use strict';
