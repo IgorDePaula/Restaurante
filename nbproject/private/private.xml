@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/icarvalho/restau/src/app/config/config.js</file>
+            <file>file:/home/icarvalho/restau/src/app/module/vendas/view/vendas.tpl.html</file>
             <file>file:/home/icarvalho/restau/src/index.html</file>
+            <file>file:/home/icarvalho/restau/src/app/module/vendas/vendas.js</file>
+            <file>file:/home/icarvalho/restau/src/app/module/produtos/view/produto-lista.tpl.html</file>
             <file>file:/home/icarvalho/restau/src/app/app.js</file>
         </group>
     </open-files>

@@ -26,7 +26,7 @@ angular.module('Restaurante', [
    
             $scope.heading = 'Restaurante';
         })
-        .controller('VendasCtrl', function($scope, vendas) {
+      .controller('VendasCtrl', function($scope, vendas) {
             'use strict';
             $scope.isLoading = true;
             $scope.produtos = vendas.getAtivo(function() {
