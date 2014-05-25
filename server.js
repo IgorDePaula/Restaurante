@@ -1,5 +1,15 @@
 var restify = require('restify');
 var Sequelize = require('sequelize');
+
+var io = require('socket.io').listen(8090);
+io.sockets.on('connection',function(socket){
+    socket.on('toServer',function(data){
+    socket.emit('toclient',{produto:data.produto});    
+    socket.broadcast.emit('toclient',{produto:data.produto});    
+    });
+    
+});
+
 var sequelize = new Sequelize('restaurante', 'restaurante', 'restaurante', {
     host: 'localhost',
     port: 3306,
