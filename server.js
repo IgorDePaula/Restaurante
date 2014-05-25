@@ -92,7 +92,8 @@ server.post('/produtos', function(req, res, next) {
                             nome: req.body.nome,
                             descricao: req.body.descricao,
                             ativo: req.body.ativo,
-                            precoativo: req.body.precoativo
+                            precoativo: 1,
+                            valorbase: req.body.valorbase
                         }).success(function(prod, err) {
                             if (!err)
                                 res.send({result: true});

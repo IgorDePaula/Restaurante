@@ -1,0 +1,34 @@
+{
+  "name": "Restaurante",
+  "version": "0.0.11",
+  "authors": [
+    "Igor De Paula <principe.borodin@gmail.com>"
+  ],
+  "description": "App for Restaurante",
+  "main": "index.html",
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular-animate": "1.2.16",
+    "angular-cookies": "1.2.16",
+    "angular-mocks": "1.2.16",
+    "angular-sanitize": "1.2.16",
+    "angular-resource": "1.2.16",
+    "angular-socket-io": "~0.6.0",
+    "angular-touch": "1.2.16",
+    "angular-ui-router": "0.2.10",
+    "bootstrap": ">= 3.1.1",
+    "modernizr": "*",
+    "momentjs": "*",
+    "ng-flow": "~2.4.0",
+    "ng-socket": "*",
+    "socket.io-client": "~0.9.16",
+    "requirejs": "~2.1.11",
+    "socket.io": "~0.9.15",
+    "underscore.string": "*",
+    "underscore": "*"
+  }
+}
